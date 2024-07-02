@@ -1,0 +1,87 @@
+.slider {
+	.slick {
+		&-prev {
+			z-index: 99;
+			top: inherit;
+			bottom: -124px;
+			left: calc(50% - 160px);
+			border-radius: 100%;
+			background-color: rgba(196, 196, 196, 0.01);
+			border: 2px solid rgba(255, 255, 255, 0.25);
+			backdrop-filter: blur(40px);
+			width: 48px;
+			height: 48px;
+			&::before {
+				font-size: 0;
+				width: 44px;
+				height: 44px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-image: url("data:image/svg+xml,%3Csvg width='13' height='21' viewBox='0 0 13 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9938 2.6969C12.538 2.18893 12.538 1.32622 11.9938 0.818255C11.5001 0.357504 10.734 0.357504 10.2404 0.818255L1.38491 9.08334C0.537755 9.87402 0.537754 11.2169 1.38491 12.0076L10.2404 20.2727C10.734 20.7334 11.5001 20.7334 11.9938 20.2727C12.538 19.7647 12.538 18.902 11.9938 18.394L5.15114 12.0076C4.30399 11.2169 4.30399 9.87402 5.15114 9.08335L11.9938 2.6969Z' fill='white' /%3E%3C/svg%3E");
+				background-repeat: no-repeat;
+				background-position: 14px 12px;
+			}
+		}
+		&-next {
+			z-index: 99;
+			top: inherit;
+			bottom: -124px;
+			right: calc(50% - 160px);
+			border-radius: 100%;
+			background-color: rgba(196, 196, 196, 0.01);
+			border: 2px solid rgba(255, 255, 255, 0.25);
+			backdrop-filter: blur(40px);
+			width: 48px;
+			height: 48px;
+			&::before {
+				font-size: 0;
+				width: 44px;
+				height: 44px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-image: url("data:image/svg+xml,%3Csvg width='13' height='21' viewBox='0 0 13 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.00624 18.3031C0.461993 18.8111 0.461994 19.6738 1.00624 20.1817C1.4999 20.6425 2.26598 20.6425 2.75964 20.1817L11.6151 11.9167C12.4622 11.126 12.4622 9.78311 11.6151 8.99243L2.75964 0.727347C2.26598 0.266594 1.4999 0.266594 1.00624 0.727345C0.461993 1.23531 0.461993 2.09803 1.00624 2.60599L7.84886 8.99243C8.69601 9.78311 8.69601 11.126 7.84886 11.9167L1.00624 18.3031Z' fill='white' /%3E%3C/svg%3E");
+				background-repeat: no-repeat;
+				background-position: 16px 12px;
+			}
+		}
+		&-dots {
+			bottom: -83px;
+			li {
+				width: 40px;
+				height: 8px;
+				button {
+					width: 40px;
+					height: 8px;
+					&::before {
+						width: 40px;
+						height: 8px;
+						border-radius: 20px;
+						background: var(--text);
+						opacity: 0.13;
+						font-size: 0;
+						// background: rgba(255, 255, 255, 0.13);
+					}
+				}
+				&.slick-active {
+					button {
+						&::before {
+							opacity: 1;
+							font-size: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	.slider {
+		.slick {
+			&-dots {
+				bottom: -36px;
+			}
+		}
+	}
+}

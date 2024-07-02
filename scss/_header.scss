@@ -1,0 +1,227 @@
+.header {
+	// position: fixed;
+	// top: 0;
+	// width: 100%;
+	padding: 24px 0 70px;
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 auto;
+	}
+	&__logo {
+	}
+	&__right {
+		display: flex;
+		align-items: center;
+		gap: 64px;
+	}
+	&__burger {
+		display: none;
+	}
+	&__panel {
+		transition: all 0.6s ease-in-out;
+		.header__burger {
+			display: none;
+		}
+		.header__button {
+			display: none;
+		}
+		.header__wrapper-logo {
+			display: none;
+		}
+	}
+	&__menu {
+		display: flex;
+		align-items: center;
+		gap: 64px;
+	}
+	&__info {
+		display: none;
+	}
+	&__item {
+	}
+	&__link {
+		color: var(--text);
+		&:hover {
+			color: #9090bd;
+		}
+		&:focus,
+		&:active {
+			color: #7c72af;
+		}
+	}
+	&__button {
+		border-radius: 100px;
+		padding: 10px 16px;
+		width: 125px;
+		height: 42px;
+		background: linear-gradient(90deg, #4776e6 0%, #8e54e9 100%);
+		&:hover {
+			background: linear-gradient(90deg, rgba(71, 118, 230, 0.7) 0%, rgba(142, 84, 233, 0.7) 100%);
+		}
+		&:focus,
+		&:active {
+			background: linear-gradient(90deg, rgba(31, 73, 173, 0.7) 0%, rgba(95, 45, 174, 0.7) 100%);
+		}
+	}
+}
+@media (max-width: 1280px) {
+	.header {
+		&__right {
+			gap: 24px;
+		}
+		&__menu {
+			display: none;
+		}
+		&__item:last-child {
+			// display: none;
+		}
+		&__burger {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 5px;
+			width: 46px;
+			height: 46px;
+			border-radius: 50%;
+			background-color: rgba(125, 93, 233, 0.4);
+			transition: all 0.6s ease-in-out;
+			z-index: 9;
+			&::before {
+				content: "";
+				width: 16px;
+				height: 2px;
+				border-radius: 4px;
+				background-color: var(--text);
+			}
+			&::after {
+				content: "";
+				width: 16px;
+				height: 2px;
+				border-radius: 10px;
+				background-color: var(--text);
+			}
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		&__panel {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+			backdrop-filter: blur(40px);
+			background: rgba(196, 196, 196, 0.01);
+			padding: 24px 20px 64px 32px;
+			position: fixed;
+			right: -40%;
+			top: 0;
+			width: 40%;
+			z-index: 999;
+			min-height: 689px;
+			height: 100vh;
+			transition: all 0.6s ease;
+			&_visible {
+				right: 0;
+				.header__burger {
+					display: flex;
+					z-index: 999;
+					position: absolute;
+					right: 20px;
+					top: 20px;
+					&::before {
+						rotate: (-45deg);
+						// margin-top: -10px;
+					}
+					&::after {
+						rotate: (45deg);
+						margin: -7px 0 0 0;
+					}
+				}
+				.header__menu {
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					gap: 32px;
+					padding-top: 24px;
+				}
+				.header__button {
+					display: inline-block;
+					margin-top: 48px;
+				}
+				.header__wrapper-logo {
+					display: none;
+				}
+			}
+		}
+
+		&__info {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			position: absolute;
+			bottom: 64px;
+			width: 340px;
+			left: 50%;
+			transform: translateX(-50%);
+			text-align: center;
+			z-index: 999;
+			font-weight: 300;
+			font-size: 14px;
+			line-height: 1.42857;
+		}
+		&__icons {
+			display: flex;
+			gap: px;
+			align-items: center;
+			justify-content: center;
+			gap: 16px;
+			margin-bottom: 12px;
+		}
+	}
+}
+@media (max-width: 1024px) {
+	.header {
+		padding-bottom: 50px;
+		&__panel {
+			width: 63%;
+			right: -63%;
+			&_visible {
+				right: 0;
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	.header {
+		&__logo {
+			max-width: 112px;
+			z-index: 99;
+		}
+		&__button {
+			display: none;
+		}
+		&__panel {
+			text-align: center;
+			width: 100%;
+			right: -100%;
+			padding: 16px 20px;
+			&_visible {
+				right: 0;
+				.header__wrapper-logo {
+					display: block;
+					width: 148px;
+					background: rgba(125, 93, 233, 0.08);
+					border-radius: 10px;
+					padding: 14px 18px;
+				}
+			}
+			.header__menu {
+				align-items: center;
+				padding-top: 46px;
+			}
+			.header__button {
+				margin: 42px auto 0;
+			}
+		}
+	}
+}
